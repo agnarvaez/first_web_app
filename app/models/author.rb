@@ -10,7 +10,4 @@ class Author < ApplicationRecord
   def product
     Product.unscoped { super }
   end
-  def destroy
-    self.destroy!
-  end
 end

@@ -26,7 +26,4 @@ class User < ActiveRecord::Base
     Product.unscoped { super }
   end
 
-  def destroy
-     self.destroy!
-  end
 end

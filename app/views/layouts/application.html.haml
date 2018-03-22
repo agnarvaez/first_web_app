@@ -5,9 +5,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %embed{:autostart => "true", :hidden => "true", :loop => "true", :src => "path/to/background.mp3"}
-      %embed
-        #main
-          = render 'layouts/navbar'
-    = yield
+  %body{style: "margin-top => 30px;"}
+    = render 'layouts/navbar'
+    .container
+      = yield

@@ -35,7 +35,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to @author, notice: 'Author was updated successfully.' }
-        format.json { render :show, status: :updated, locairon: @author }
+        format.json { render :show, status: :updated, location: @author }
       else
         format.html { render :edit }
         format.json { render @author.errors, status: :unprocessable_entity }
@@ -44,18 +44,18 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    @author.destroy
-    respond_to do |format|
-      format.hmtl { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
-      format.json {head :no_content }
+    if @author.destroy
+      redirect_to authors_url, notice: 'Author was successfully destroyed'
+    else
+      flash[:error] = "Could not delete author."
+      redirect_back
     end
   end
 
 private
   def set_author
-    @author = Author.find(params[ :id ])
+    @author = Author.find(params[:id])
   end
-
   def author_params
     params.require( :author ).permit( :first_name, :last_name, :genre, :dobirth, :dodeath )
   end

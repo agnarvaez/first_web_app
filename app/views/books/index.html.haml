@@ -1,6 +1,6 @@
 %h2 Listing of Books
 
-%table
+%table.table.table-hover
   %thead
     %tr
       %th ID
@@ -23,8 +23,8 @@
         %td= book.publisher
         %td= book.publish_date
         %td= book.isbn
-        %td= link_to 'Show', book
-        %td= link_to 'Edit', edit_book_path(book)
-        %td= link_to 'Delete', book, :method => :delete, :data => { :confirm => 'Are you sure you want to delete this entry?' }
+        %td= link_to 'Show', book, class: 'btn btn-success btn-md'
+        %td= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-md'
+        %td= link_to 'Delete', book,class: 'btn btn-danger btn-md', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this entry?' }
 
 = link_to 'New Book', new_book_path

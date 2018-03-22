@@ -42,9 +42,14 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was destroyed successfully.' }
-      format.json { head :no_content }
+    if @book.destroy
+      respond_to do |format|
+        format.html { redirect_to books_url, notice: 'Book was destroyed successfully.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Boook not destroyed"
+      redirect_back
     end
   end
 

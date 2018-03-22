@@ -1,4 +1,9 @@
-= link_to 'Books', books_path
-= link_to 'Categories', categories_path
-= link_to 'Authors', authors_path
-= link_to 'Publishers', publishers_path
+
+%nav.navbar.navbar-inverse
+  .container-fluid
+    %ul.nav.navbar-nav
+      %li= link_to 'Menu', root_path
+      %li= link_to 'Books', books_path
+      %li= link_to 'Authors', authors_path
+      %li= link_to 'Categories', categories_path
+      %li= link_to 'Publishers', publishers_path

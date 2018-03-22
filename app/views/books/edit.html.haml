@@ -1,7 +1,5 @@
-%h2 Editing book
+%h2 Edit
 
 = render 'form'
-
-= link_to 'Show', @book
-\|
-= link_to 'Back', books_path
+= link_to 'Show', @book, class: 'btn btn-primary btn-sm'
+= link_to 'Back', books_path, class: 'btn btn-info btn-sm'

@@ -35,9 +35,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was destroyed successfully.' }
-      format.json { head :no_content }
+    if @category.destroy
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: 'Category was destroyed successfully.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Category not deleted"
+      redirect_back
     end
   end
 

@@ -35,9 +35,14 @@ class PublishersController < ApplicationController
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to publishers_url, notice: 'Publisher was destroyed successfully.' }
-      format.json { head :no_content }
+    if @publisher.destroy
+      respond_to do |format|
+        format.html { redirect_to publishers_url, notice: 'Publisher was destroyed successfully.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Publisher could not be deleted"
+      redirect_back
     end
   end
 
