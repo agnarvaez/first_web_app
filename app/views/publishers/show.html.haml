@@ -1,0 +1,28 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @publisher.title
+%p
+  %b City:
+  = @publisher.city
+%p
+  %b State:
+  = @publisher.state
+
+= link_to 'Edit', edit_publisher_path(@publisher)
+\|
+= link_to 'Back', publishers_path
+
+%table.table
+  %thead
+    %tr
+      %th Genre
+      %th Author
+      %th
+    %tbody
+      - @publisher.books.each do |books|
+        %tr
+          %td= books.category
+          %td
+%td

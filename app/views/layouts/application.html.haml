@@ -1,9 +1,13 @@
 !!!
 %html
   %head
-    %title FirstWebApp
+    %title Workspace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %embed{:autostart => "true", :hidden => "true", :loop => "true", :src => "path/to/background.mp3"}
+      %embed
+        #main
+          = render 'layouts/navbar'
     = yield

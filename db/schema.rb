@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301195934) do
+ActiveRecord::Schema.define(version: 20180322185830) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -22,23 +22,41 @@ ActiveRecord::Schema.define(version: 20180301195934) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "book_authors", force: :cascade do |t|
+    t.integer  "author_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_book_authors_on_author_id"
+    t.index ["book_id"], name: "index_book_authors_on_book_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.decimal  "price"
     t.datetime "published"
     t.string   "isbn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.date     "publish_date"
+    t.integer  "category_id"
+    t.integer  "publisher_id"
+    t.index ["category_id"], name: "index_books_on_category_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "title"
   end
 
   create_table "publishers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "city"
+    t.string   "state"
   end
 
 end

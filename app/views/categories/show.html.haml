@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%p
+  %b Category:
+  = @category.title
+
+= link_to 'Edit', edit_category_path(@category)
+\|
+= link_to 'Back', categories_path
+
+%table.table
+  %thead
+    %tr
+      %th Title
+      %th Price
+      %th
+      %th
+    %tbody
+      - @category.books.each do |book|
+        %tr
+          %td= book.title
+          %td= book.price
+          %td= link_to "Show", book

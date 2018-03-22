@@ -1,0 +1,33 @@
+
+%p#notice= notice
+
+%p
+  %b Firstname:
+  = @author.first_name
+%p
+  %b Lastname:
+  = @author.last_name
+%p
+  %b Genre:
+  = @author.genre
+%p
+  %b Dobirth:
+  = @author.dobirth
+%p
+  %b Dodeath:
+  = @author.dodeath
+
+= link_to 'Edit', edit_author_path(@author)
+\|
+= link_to 'Back', authors_path
+
+%table.table
+  %thead
+    %th Publisher
+    %th price
+    %th
+  %tbody
+    - @books.each do |book|
+      %td= book.publisher
+      %td= book.price
+%td
