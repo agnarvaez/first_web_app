@@ -1,18 +1,19 @@
-%p#notice= notice
+%table.table.table-condensed
+  %thead
+    %tr
+    %td Title:
+    %td= @publisher.title
 
-%p
-  %b Title:
-  = @publisher.title
-%p
-  %b City:
-  = @publisher.city
-%p
-  %b State:
-  = @publisher.state
+    %tr
+    %td City:
+    %td= @publisher.city
 
-= link_to 'Edit', edit_publisher_path(@publisher)
-\|
-= link_to 'Back', publishers_path
+    %tr
+    %td State:
+    %td= @publisher.state
+
+= link_to 'Edit', edit_publisher_path(@publisher), class: 'btn btn-success btn-sm'
+= link_to 'Back', publishers_path, class: 'btn btn-warning btn-sm'
 
 %table.table
   %thead

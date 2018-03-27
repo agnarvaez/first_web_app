@@ -1,7 +1,7 @@
 
 %h2 Listing of Authors
 
-%table
+%table.table.table-hover
   %thead
     %tr
       %th Firstname
@@ -21,10 +21,10 @@
         %td= author.genre
         %td= author.dobirth
         %td= author.dodeath
-        %td= link_to 'Show', author
-        %td= link_to 'Edit', edit_author_path(author)
-        %td= link_to 'Destroy', author, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', author, class: 'btn btn-warning btn-md'
+        %td= link_to 'Edit', edit_author_path(author), class: 'btn btn-danger btn-md'
+        %td= link_to 'Destroy', author, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-success btn-md'
 
 %br
 
-= link_to 'New Author', new_author_path
+= link_to 'New Author', new_author_path, class: 'btn btn-primary btn-md'

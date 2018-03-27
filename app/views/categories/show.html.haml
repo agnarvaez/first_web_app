@@ -1,12 +1,11 @@
-%p#notice= notice
+%table.table.table-condensed
+  %thead
+    %tr
+    %td Category:
+    %td= @category.title
 
-%p
-  %b Category:
-  = @category.title
-
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+= link_to 'Edit', edit_category_path(@category), class: 'btn btn-warning btn-sm'
+= link_to 'Back', categories_path, class: 'btn btn-danger btn-sm'
 
 %table.table
   %thead
@@ -20,4 +19,4 @@
         %tr
           %td= book.title
           %td= book.price
-          %td= link_to "Show", book
+          %td= link_to "Show", book, class: 'btn btn-primary btn-md'

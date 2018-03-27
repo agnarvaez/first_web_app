@@ -1,25 +1,28 @@
 
-%p#notice= notice
+%table.table.table-condensed
+  %thead
+    %tr
+    %td Firstname:
+    %td= @author.first_name
 
-%p
-  %b Firstname:
-  = @author.first_name
-%p
-  %b Lastname:
-  = @author.last_name
-%p
-  %b Genre:
-  = @author.genre
-%p
-  %b Dobirth:
-  = @author.dobirth
-%p
-  %b Dodeath:
-  = @author.dodeath
+    %tr
+    %td Lastname:
+    %td= @author.last_name
 
-= link_to 'Edit', edit_author_path(@author)
-\|
-= link_to 'Back', authors_path
+    %tr
+    %td Genre:
+    %td= @author.genre
+
+    %tr
+    %td Dobirth:
+    %td= @author.dobirth
+
+    %tr
+    %td Dodeath:
+    %td= @author.dodeath
+
+= link_to 'Edit', edit_author_path(@author), class: 'btn btn-warning btn-md'
+= link_to 'Back', authors_path, class: 'btn btn-success btn-md'
 
 %table.table
   %thead
