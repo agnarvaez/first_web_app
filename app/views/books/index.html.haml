@@ -17,7 +17,7 @@
       %tr
         %td= book.id
         %td= book.title
-        %td
+        %td= book.authors.collect(&:full_name).to_sentence
         %td= book.price
         %td= book.category
         %td= book.publisher
