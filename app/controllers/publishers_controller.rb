@@ -26,7 +26,7 @@ class PublishersController < ApplicationController
     respond_to do |format|
       if @publisher.update(publisher_params)
         format.html { redirect_to @publisher, notice: 'Publisher was updated successfully.' }
-        format.json { render :show, status: :updated, location: @category }
+        format.json { render :show, status: :updated, location: @publisher }
       else
         format.html { render :edit }
         format.json { render json: @publisher.errors, status: :unprocessable_entity }
